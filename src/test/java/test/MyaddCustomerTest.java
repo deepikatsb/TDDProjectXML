@@ -16,8 +16,7 @@ public class MyaddCustomerTest {
 
 	public void validateAddContactsPage() throws InterruptedException {
 		driver = MyBrowserFactory.init();
-		String[] tags_test_data = {"happy","sad","smile"};
-		
+				
 		MyLoginPage loginpage = PageFactory.initElements(driver, MyLoginPage.class);
 		loginpage.insertUsername("demo@techfios.com");
 		loginpage.insertPassword("abc123");
@@ -39,11 +38,9 @@ public class MyaddCustomerTest {
 		addcustomerpage.insertCountry("United States");
 		addcustomerpage.insertAddress("habuemd");
 		addcustomerpage.insertZip("111111");
-//		addcustomerpage.insertTags(tags_test_data);
 		addcustomerpage.clickSubmit();
 		
 		addcustomerpage.ValidateProfilePage1("Contacts");
-		
 		dashboardpage.clickListCustomerElement();
 
 	}

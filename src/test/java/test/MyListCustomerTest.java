@@ -15,23 +15,27 @@ public class MyListCustomerTest {
 
 	WebDriver driver;
 	String insertedName;
+	MyLoginPage loginpage;
+	MyDashboardPage dashboardpage;
+	MyAddcustomerPage addcustomerpage;
+	MyListCustomerPage listcustomerpage;
+	
 	@Test
 	@Parameters({"username","password","fullname","company","email","phone","city","state","country","address","zip"})
 	public void validateCustomerIsAddedAndDeleteFunctionIsWorking(String UserName, String Password,String FullName,String Company, String Email, String Phone, String City, String State, String Country, String Address, String Zip) throws InterruptedException {
 		driver = MyBrowserFactory.init();
 		
-		MyLoginPage loginpage = PageFactory.initElements(driver, MyLoginPage.class);
+		loginpage = PageFactory.initElements(driver, MyLoginPage.class);
 		loginpage.insertUsername(UserName);
 		loginpage.insertPassword(Password);
 		loginpage.clickSigninButton();
 
-		MyDashboardPage dashboardpage = PageFactory.initElements(driver, MyDashboardPage.class);
+		dashboardpage = PageFactory.initElements(driver, MyDashboardPage.class);
 		dashboardpage.validateDashboardPage("Dashboard- iBilling");
 		dashboardpage.clickCustomerElement();
 		dashboardpage.clickAddCustomerElement();
-//		dashboardpage.clickListCustomerElement();
 		
-		MyAddcustomerPage addcustomerpage = PageFactory.initElements(driver, MyAddcustomerPage.class);
+		addcustomerpage = PageFactory.initElements(driver, MyAddcustomerPage.class);
 		addcustomerpage.validateAddCustomerPage1("Contacts - iBilling");
 		insertedName = addcustomerpage.insertFullname(FullName);
 		addcustomerpage.insertCompany(Company);
@@ -44,12 +48,10 @@ public class MyListCustomerTest {
 		addcustomerpage.insertZip(Zip);
 		
 		addcustomerpage.clickSubmit();
-		
 		addcustomerpage.ValidateProfilePage1("Contacts");
-		
 		dashboardpage.clickListCustomerElement();
 		
-		MyListCustomerPage listcustomerpage = PageFactory.initElements(driver, MyListCustomerPage.class);
+		listcustomerpage = PageFactory.initElements(driver, MyListCustomerPage.class);
 		listcustomerpage.validateListCustomerPage();
 		listcustomerpage.validateIfNameIsInsertedAndDeleted(insertedName);
 		listcustomerpage.clickAddCustomeronListCustomer();
@@ -68,6 +70,8 @@ public class MyListCustomerTest {
 		dashboardpage.clickListCustomerElement();
 		
 		listcustomerpage.performSearchandcheckProfile(insertedName);
+		
+		MyBrowserFactory.teardown();
 		
 		
 	}
