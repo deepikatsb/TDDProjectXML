@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [regression]">
+  <test thread-count="5" name="ListcustomerTest(failed)">
+    <parameter name="zip" value="92739"/>
+    <parameter name="country" value="Denmark"/>
+    <parameter name="password" value="abc123"/>
+    <parameter name="address" value="Kachim Razuol"/>
+    <parameter name="city" value="Zimbabue"/>
+    <parameter name="phone" value="02739"/>
+    <parameter name="company" value="Tesla"/>
+    <parameter name="fullname" value="Amoamo"/>
+    <parameter name="state" value="Jimpsla"/>
+    <parameter name="email" value="amul@blabla.com"/>
+    <parameter name="username" value="demo@techfios.com"/>
+    <classes>
+      <class name="test.MyListCustomerTest">
+        <methods>
+          <include name="validateCustomerIsAddedAndDeleteFunctionIsWorking" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- test.MyListCustomerTest -->
+    </classes>
+  </test> <!-- ListcustomerTest(failed) -->
+</suite> <!-- Failed suite [regression] -->

@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="regression">
+	<test name="ListcustomerTest">
+
+		<parameter name="username" value="demo@techfios.com" />
+		<parameter name="password" value="abc123" />
+		<parameter name="fullname" value="Deepika" />
+		<parameter name="company" value="Tesla" />
+		<parameter name="email" value="deeps@lily.com" />
+		<parameter name="city" value="India" />
+		<parameter name="address" value="Atlanta" />
+		<parameter name="state" value="GA" />
+		<parameter name="country" value="US" />
+		<parameter name="zip" value="92739" />
+		<parameter name="phone" value="9302094838" />
+
+		<classes>
+			<class name="test.MyListCustomerTest"></class>
+			<class name="test.MyLoginTest"></class>
+		</classes>
+
+	</test>
+
+</suite>
